@@ -60,13 +60,13 @@ COPY payment_activity FROM '/tmp/AMEX_Transaction_Analysts.csv'
 WITH (FORMAT csv, HEADER true, DELIMITER ',', ENCODING 'UTF8');
 ```
 
-### ⚠️ Error I Encoruntered During This Process Common Issues & Fixes
+### ⚠️ Errors I Encountered During This Process & How I Fixed Them
 
-| Issue                                     | Solution                                |
-| ----------------------------------------- | --------------------------------------- |
-| **❌ Permissions Error**                  | Move file to `/tmp/` or use `chmod 644` |
-| **❌ Incorrect File Path**                | Ensure absolute path is correct         |
-| **❌ Currency Formatting Error ($38.21)** | Remove `$` symbol before inserting      |
+| Issue                                     | Solution                                                  |
+| ----------------------------------------- | --------------------------------------------------------- |
+| **❌ Permissions Error**                  | I Moveed the file to `/tmp/`                              |
+| **❌ Incorrect File Path**                | I Ensure absolute path was correct                        |
+| **❌ Currency Formatting Error ($38.21)** | Remove `$` symbol before inserting into the payment table |
 
 🔧 **Fixing Currency Format**:
 
@@ -75,7 +75,7 @@ SELECT TO_NUMBER(REPLACE(amount, '$', ''), '9999999.99') AS clean_amount
 FROM temp_payment_activity;
 ```
 
----
+## See more in the Data_Cleaning.sql file.
 
 ## 📊 Analysis: Top 10 Merchants
 
@@ -122,7 +122,7 @@ Here’s a chart displaying the **Top 10 Merchants by Spending**:
 
 ✅ Perform deeper analysis on **spending patterns**  
 ✅ Integrate **Tableau / Looker** for better visualization  
-✅ Implement **machine learning** models for predictive analysis - After I master SQL 🎓
+✅ Implement **Machine learning** models for predictive analysis – I will work on this with my Data Scientist friend, but I need to master SQL first before thinking more about this. 🎓
 
 ---
 
