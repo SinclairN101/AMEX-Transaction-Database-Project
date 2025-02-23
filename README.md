@@ -75,7 +75,7 @@ SELECT TO_NUMBER(REPLACE(amount, '$', ''), '9999999.99') AS clean_amount
 FROM temp_payment_activity;
 ```
 
-## See more in the Data_Cleaning.sql file.
+🧐 I had two options to clean this data and fix the currency format, but I wanted to take the SQL route as this would help me practice instead of just using 'Find and Replace' in Excel. The reason this temp table even existed was that the data cleaning process was done; however, the amount column was a numeric data type, and I did not remove the $ symbol when copying the data into the table.
 
 ## 📊 Analysis: Top 10 Merchants
 
