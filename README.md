@@ -1,5 +1,7 @@
 # 💳 AMEX-Transaction-Database-Project
 
+![Amex Animation](Animation%20Flow/Amex_Animation_Data_Flow.gif)
+
 ## 📝 Description
 
 A personal project to build a **PostgreSQL database** from scratch using my own **AMEX transaction data**.
