@@ -5,6 +5,7 @@
 A personal project to build a **PostgreSQL database** from scratch using my own **AMEX transaction data**.
 
 This project covers the **full data pipeline**:
+
 ✅ Importing raw data  
 ✅ Cleaning and transforming it  
 ✅ Optimizing queries  
