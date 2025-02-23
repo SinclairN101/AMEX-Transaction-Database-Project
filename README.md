@@ -1,10 +1,13 @@
 # 💳 AMEX-Transaction-Database-Project
 
+![Amex Animation](Animation%20Flow/Amex_Animation_Data_Flow.gif)
+
 ## 📝 Description
 
 A personal project to build a **PostgreSQL database** from scratch using my own **AMEX transaction data**.
 
 This project covers the **full data pipeline**:
+
 ✅ Importing raw data  
 ✅ Cleaning and transforming it  
 ✅ Optimizing queries  
@@ -60,13 +63,13 @@ COPY payment_activity FROM '/tmp/AMEX_Transaction_Analysts.csv'
 WITH (FORMAT csv, HEADER true, DELIMITER ',', ENCODING 'UTF8');
 ```
 
-### ⚠️ Error I Encoruntered During This Process Common Issues & Fixes
+### ⚠️ Errors I Encountered During This Process & How I Fixed Them
 
-| Issue                                     | Solution                                |
-| ----------------------------------------- | --------------------------------------- |
-| **❌ Permissions Error**                  | Move file to `/tmp/` or use `chmod 644` |
-| **❌ Incorrect File Path**                | Ensure absolute path is correct         |
-| **❌ Currency Formatting Error ($38.21)** | Remove `$` symbol before inserting      |
+| Issue                                     | Solution                                                  |
+| ----------------------------------------- | --------------------------------------------------------- |
+| **❌ Permissions Error**                  | I Moveed the file to `/tmp/`                              |
+| **❌ Incorrect File Path**                | I Ensure absolute path was correct                        |
+| **❌ Currency Formatting Error ($38.21)** | Remove `$` symbol before inserting into the payment table |
 
 🔧 **Fixing Currency Format**:
 
@@ -75,7 +78,7 @@ SELECT TO_NUMBER(REPLACE(amount, '$', ''), '9999999.99') AS clean_amount
 FROM temp_payment_activity;
 ```
 
----
+🧐 I had two options to clean this data and fix the currency format, but I wanted to take the SQL route as this would help me practice instead of just using 'Find and Replace' in Excel. The reason this temp table even existed was that the data cleaning process was done; however, the amount column was a numeric data type, and I did not remove the $ symbol when copying the data into the table.
 
 ## 📊 Analysis: Top 10 Merchants
 
@@ -122,7 +125,7 @@ Here’s a chart displaying the **Top 10 Merchants by Spending**:
 
 ✅ Perform deeper analysis on **spending patterns**  
 ✅ Integrate **Tableau / Looker** for better visualization  
-✅ Implement **machine learning** models for predictive analysis - After I master SQL 🎓
+✅ Implement **Machine learning** models for predictive analysis – I will work on this with my Data Scientist friend, but I need to master SQL first before thinking more about this. 🎓
 
 ---
 
